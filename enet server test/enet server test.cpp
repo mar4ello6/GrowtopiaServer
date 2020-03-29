@@ -4096,7 +4096,26 @@ label|Download Latest Version
 							//cout << data2->packetType << endl;
 							if (data2->packetType == 3)
 							{
-								sendTileUpdate(data2->punchX, data2->punchY, data2->plantingTree, ((PlayerInfo*)(event.peer->data))->netID, peer);
+								if (((PlayerInfo*)(peer->data))->cloth_hand == 5480) {
+									bool turned = false;
+									bool down = false;
+									bool rightdown = false;
+									if (((PlayerInfo*)(peer->data))->isRotatedLeft) turned = true;
+									if (data2->punchY > data2->y / 32) down = true;
+									int omg = data2->x / 32;
+									if (down) if (data2->punchX == omg) rightdown = true;
+									int cx = data2->punchX;
+									int cy = data2->punchY;
+									for (int i = 0; i < 3; i++) { //how long rayman
+										sendTileUpdate(cx, cy, data2->plantingTree, ((PlayerInfo*)(event.peer->data))->netID, peer);
+										if (down) cy += 1;
+										if (!rightdown) {
+											if (turned) cx -= 1;
+											else cx += 1;
+										}
+									}
+								}
+								else sendTileUpdate(data2->punchX, data2->punchY, data2->plantingTree, ((PlayerInfo*)(event.peer->data))->netID, peer);
 							}
 							else {
 
