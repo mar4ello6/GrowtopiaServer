@@ -4106,7 +4106,7 @@ label|Download Latest Version
 									if (down) if (data2->punchX == omg) rightdown = true;
 									int cx = data2->punchX;
 									int cy = data2->punchY;
-									for (int i = 0; i < 3; i++) { //how long rayman
+									for (int i = 0; i < 3; i++) { //how long will hit be, now it is 3 blocks long
 										sendTileUpdate(cx, cy, data2->plantingTree, ((PlayerInfo*)(event.peer->data))->netID, peer);
 										if (down) cy += 1;
 										if (!rightdown) {
