@@ -4096,7 +4096,7 @@ label|Download Latest Version
 							//cout << data2->packetType << endl;
 							if (data2->packetType == 3)
 							{
-								if (((PlayerInfo*)(peer->data))->cloth_hand == 5480) {
+								if (((PlayerInfo*)(peer->data))->cloth_hand == 5480 && data2->plantingTree == 18) {
 									bool turned = false;
 									bool down = false;
 									bool rightdown = false;
